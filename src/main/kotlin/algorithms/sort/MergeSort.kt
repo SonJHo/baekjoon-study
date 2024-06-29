@@ -4,11 +4,25 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.StringTokenizer
 
+/* 예제
+10
+30 minho
+25 joonho
+22 sujin
+29 dongha
+25 jinwoo
+30 hyewon
+28 seojin
+24 yuna
+27 jihoon
+26 haein
+*/
+
 fun main() { // 백준 10814 - mergeSort 풀이
     val br = BufferedReader(InputStreamReader(System.`in`))
 
     val n = br.readLine().toInt() //회원수
-    val members = arrayOfNulls<Member>(n)
+    val members = Array(n) { Member(0, "") }
 
     var st: StringTokenizer
     for (i in 0..<n) {
@@ -25,14 +39,14 @@ fun main() { // 백준 10814 - mergeSort 풀이
     printMembers(sortedMembers)
 }
 
-fun printMembers(members: Array<Member?>){
+fun printMembers(members: Array<Member>) {
     for (member in members) {
         println(member)
     }
     println()
 }
 
-fun mergeSort(members: Array<Member?>): Array<Member?> {
+fun mergeSort(members: Array<Member>): Array<Member> {
     if (members.size < 2) {
         return members
     }
@@ -45,28 +59,28 @@ fun mergeSort(members: Array<Member?>): Array<Member?> {
     return merge(mergeSort(left), mergeSort(right))
 }
 
-fun merge(left: Array<Member?>, right: Array<Member?>): Array<Member?> {
-    val merged = arrayOfNulls<Member>(left.size + right.size)
+fun merge(left: Array<Member>, right: Array<Member>): Array<Member> {
+    val merged = Array(left.size + right.size) { Member(0, "") }
     var lp = 0
     var rp = 0
     var mp = 0
 
-    while (lp != (left.size) && rp != (right.size)){
-        if(left[lp]!!.age <= right[rp]!!.age){
+    while (lp != (left.size) && rp != (right.size)) {
+        if (left[lp].age <= right[rp].age) {
             merged[mp] = left[lp]
             lp++
             mp++
-        }else{
+        } else {
             merged[mp] = right[rp]
             rp++
             mp++
         }
     }
-    if(lp == (left.size)){
-       System.arraycopy(right, rp, merged, mp, right.size - rp )
+    if (lp == (left.size)) {
+        System.arraycopy(right, rp, merged, mp, right.size - rp)
     }
-    if( rp == (right.size)){
-        System.arraycopy(left, lp, merged, mp, left.size - lp )
+    if (rp == (right.size)) {
+        System.arraycopy(left, lp, merged, mp, left.size - lp)
     }
 
     return merged
