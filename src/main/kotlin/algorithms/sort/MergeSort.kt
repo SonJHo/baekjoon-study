@@ -18,7 +18,7 @@ import java.util.StringTokenizer
 26 haein
 */
 
-fun main() { // 백준 10814 - mergeSort 풀이
+fun main() { // 백준 10814 - mergeSort 풀이 O(nLogn)
     val br = BufferedReader(InputStreamReader(System.`in`))
 
     val n = br.readLine().toInt() //회원수
@@ -39,14 +39,14 @@ fun main() { // 백준 10814 - mergeSort 풀이
     printMembers(sortedMembers)
 }
 
-fun printMembers(members: Array<Member>) {
+private fun printMembers(members: Array<Member>) {
     for (member in members) {
         println(member)
     }
     println()
 }
 
-fun mergeSort(members: Array<Member>): Array<Member> {
+private fun mergeSort(members: Array<Member>): Array<Member> {
     if (members.size < 2) {
         return members
     }
@@ -59,7 +59,7 @@ fun mergeSort(members: Array<Member>): Array<Member> {
     return merge(mergeSort(left), mergeSort(right))
 }
 
-fun merge(left: Array<Member>, right: Array<Member>): Array<Member> {
+private fun merge(left: Array<Member>, right: Array<Member>): Array<Member> {
     val merged = Array(left.size + right.size) { Member(0, "") }
     var lp = 0
     var rp = 0
