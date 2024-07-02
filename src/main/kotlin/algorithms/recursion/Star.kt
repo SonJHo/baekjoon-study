@@ -4,7 +4,7 @@ import java.lang.StringBuilder
 import java.util.Scanner
 
 // input = 3n
-fun main() {
+fun main() {  //백준 2447 재귀를 이용한 별 찍기
     val sc = Scanner(System.`in`)
     val n = sc.nextInt()
 
