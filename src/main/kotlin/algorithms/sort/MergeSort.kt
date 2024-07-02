@@ -22,14 +22,14 @@ fun main() { // 백준 10814 - mergeSort 풀이 O(nLogn)
     val br = BufferedReader(InputStreamReader(System.`in`))
 
     val n = br.readLine().toInt() //회원수
-    val members = Array(n) { Member(0, "") }
+    val members = Array(n) { Point(0, "") }
 
     var st: StringTokenizer
     for (i in 0..<n) {
         st = StringTokenizer(br.readLine())
         val age = st.nextToken().toInt()
         val name = st.nextToken()
-        members[i] = Member(age, name)
+        members[i] = Point(age, name)
     }
     println("--oriented--")
     printMembers(members)
@@ -39,14 +39,14 @@ fun main() { // 백준 10814 - mergeSort 풀이 O(nLogn)
     printMembers(sortedMembers)
 }
 
-private fun printMembers(members: Array<Member>) {
+private fun printMembers(members: Array<Point>) {
     for (member in members) {
         println(member)
     }
     println()
 }
 
-private fun mergeSort(members: Array<Member>): Array<Member> {
+private fun mergeSort(members: Array<Point>): Array<Point> {
     if (members.size < 2) {
         return members
     }
@@ -59,8 +59,8 @@ private fun mergeSort(members: Array<Member>): Array<Member> {
     return merge(mergeSort(left), mergeSort(right))
 }
 
-private fun merge(left: Array<Member>, right: Array<Member>): Array<Member> {
-    val merged = Array(left.size + right.size) { Member(0, "") }
+private fun merge(left: Array<Point>, right: Array<Point>): Array<Point> {
+    val merged = Array(left.size + right.size) { Point(0, "") }
     var lp = 0
     var rp = 0
     var mp = 0
@@ -86,7 +86,7 @@ private fun merge(left: Array<Member>, right: Array<Member>): Array<Member> {
     return merged
 }
 
-class Member(val age: Int, val name: String) {
+class Point(val age: Int, val name: String) {
 
     override fun toString(): String {
         return "$age $name"
