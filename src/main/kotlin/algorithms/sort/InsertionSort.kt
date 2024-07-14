@@ -14,6 +14,7 @@ import java.io.InputStreamReader
 6
 */
 fun main() { //백준 2750 - InsertionSort 풀이 O(n2)
+    // 삽입 정렬은 이미 정렬이 어느 정도 되어있을 때 효과적
     val br = BufferedReader(InputStreamReader(System.`in`))
 
     val n = br.readLine().toInt()
