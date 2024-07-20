@@ -39,7 +39,7 @@ fun main() {//백준 4779 - 칸토어 집합 (재귀) 풀이 O(n)
 
 }
 
-fun process(arr: Array<String>, l: Int, h: Int) {
+private fun process(arr: Array<String>, l: Int, h: Int) {
     val size = h - l + 1
     if (size < 3) {
         return

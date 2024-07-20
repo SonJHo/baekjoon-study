@@ -4,8 +4,8 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.StringBuilder
 
-var count = 0
-val sb = StringBuilder()
+private var count = 0
+private val sb = StringBuilder()
 
 /*
 예제
