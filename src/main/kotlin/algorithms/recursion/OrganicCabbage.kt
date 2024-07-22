@@ -27,7 +27,7 @@ import java.util.StringTokenizer
  */
 
 private var isChanged = false
-fun main() {
+fun main() {//백준 1012 유기농배추 문제
 
     val br = BufferedReader(InputStreamReader(System.`in`))
     val t = br.readLine().toInt()
