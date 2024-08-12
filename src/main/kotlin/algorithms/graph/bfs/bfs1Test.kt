@@ -32,14 +32,14 @@ fun main() { //백준 244444 너비 우선 탐색1
     println(sb)
 }
 
-fun bfs(nodeArr: Array<TreeSet<Int>>, visit: Array<Boolean>, r: Int) {
+private fun bfs(nodeArr: Array<TreeSet<Int>>, visit: Array<Boolean>, r: Int) {
     visit[r-1] = true
     arr[r-1] = ++count
 
     queue.offer(r-1)
     while (queue.isNotEmpty()){
         val polled = queue.poll()
-        val set = nodeArr[polled]
+        val set = nodeArr[polled].reversed()
 
         for (i in set) {
             if(!visit[i-1]){

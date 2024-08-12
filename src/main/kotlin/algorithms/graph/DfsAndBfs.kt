@@ -1,3 +1,5 @@
+package algorithms.graph
+
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.StringBuilder
@@ -7,7 +9,7 @@ import kotlin.collections.HashMap
 
 private val Nodes =HashMap<Int, TreeSet<Int>>()
 private val sb = StringBuilder()
-fun main() {
+fun main() {//백준 1260 DFS 와 BFS
     val br = BufferedReader(InputStreamReader(System.`in`))
     val (n, m, r) = br.readLine().split(" ").map { it.toInt() }
 
@@ -30,7 +32,7 @@ fun main() {
 
 }
 
-fun dfs(r: Int, visit: Array<Boolean>) {
+private fun dfs(r: Int, visit: Array<Boolean>) {
     visit[r-1] = true
     sb.append("$r ")
     val set = Nodes[r]
@@ -47,7 +49,7 @@ fun dfs(r: Int, visit: Array<Boolean>) {
 
 }
 
-fun bfs(r: Int, visit: Array<Boolean>) {
+private fun bfs(r: Int, visit: Array<Boolean>) {
     val queue : Queue<Int> = ArrayDeque()
     visit[r-1] = true
     sb.append("$r ")
