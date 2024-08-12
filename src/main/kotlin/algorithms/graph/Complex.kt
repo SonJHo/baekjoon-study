@@ -1,13 +1,11 @@
+package algorithms.graph
+
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.StringBuilder
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 private var count = 0
-private val Nodes = HashMap<Int, TreeSet<Int>>()
-private val sb = StringBuilder()
 fun main() { //백준 2667 단지 번호 붙이기
     val br = BufferedReader(InputStreamReader(System.`in`))
     val sb = StringBuilder()

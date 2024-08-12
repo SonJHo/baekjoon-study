@@ -4,7 +4,7 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.util.StringTokenizer
 
-fun main() {
+fun main() { //백준 13305 주유소
 
     val br = BufferedReader(InputStreamReader(System.`in`))
 

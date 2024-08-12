@@ -1,4 +1,4 @@
-package algorithms.graph.bfs
+package algorithms.graph
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
