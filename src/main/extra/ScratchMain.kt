@@ -2,60 +2,32 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.StringBuilder
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
-private var count = 0
-private val Nodes = HashMap<Int, TreeSet<Int>>()
-private val sb = StringBuilder()
-fun main() { //백준 2667 단지 번호 붙이기
+fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val sb = StringBuilder()
 
     val n = br.readLine().toInt()
-    val visited = Array(n) { Array(n) { false } }
-    val arr = ArrayList<Array<Char>>()
+    val list = br.readLine().split(" ").map { it.toInt() }
+    val values = br.readLine().split(" ").map { it.toInt() }
 
-    for (i in 1..n) {
-        arr.add(br.readLine().map { it }.toTypedArray())
-    }
-    val resultList = ArrayList<Int>()
+    val deque = ArrayDeque<Int>()
 
-    for (i in arr.indices) {
-        for (j in arr[0].indices) {
-            dfs(visited, arr, i, j)
-            if (count != 0) {
-                resultList.add(count)
-            }
-            count = 0
+    for (i in list.indices){
+        if(list[i] == 0){
+            deque.addFirst(values[i])
         }
     }
-    resultList.sort()
-    sb.append("${resultList.size}\n")
-    for (mass1 in resultList) {
-        sb.append("$mass1\n")
+
+    val m =br.readLine().toInt()
+    val st = StringTokenizer(br.readLine())
+
+    for (i in 1.. m){
+        deque.addLast(st.nextToken().toInt())
+        sb.append("${deque.pollFirst()} ")
     }
     println(sb)
-}
 
-private fun dfs(visited: Array<Array<Boolean>>, arr: java.util.ArrayList<Array<Char>>, l: Int, c: Int) {
-    if (l < 0 || l > arr.lastIndex) {
-        return
-    }
-    if (c < 0 || c > arr.lastIndex) {
-        return
-    }
-    if (arr[l][c] == '0') {
-        return
-    }
-    if (arr[l][c] == '1' && !visited[l][c]) {
-        visited[l][c] = true
-        count++
-        dfs(visited, arr, l - 1, c)
-        dfs(visited, arr, l, c - 1)
-        dfs(visited, arr, l + 1, c)
-        dfs(visited, arr, l, c + 1)
-    }
 }
 
 
