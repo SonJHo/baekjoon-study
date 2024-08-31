@@ -12,7 +12,7 @@ import java.util.StringTokenizer
 즉
 (A+B)%M == ((A%M) + (B % M)) % M  이 성립
 (A-B)%M == ((A%M) - (B % M)) % M  음수도 성립
-
+모듈러 연산
  */
 
 fun main() { //백준 10986 나머지 합 문제
