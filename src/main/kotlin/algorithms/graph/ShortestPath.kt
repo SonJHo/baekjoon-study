@@ -28,7 +28,6 @@ fun main() { //백준 1753 - 최단 경로
         visited[nowNode.num] = true
 
         for (nodes in arr[nowNode.num]) {
-
             if(!visited[nodes.num]){
                 if(distance[nowNode.num] + nodes.w < distance[nodes.num]){
                     distance[nodes.num] = distance[nowNode.num] + nodes.w
